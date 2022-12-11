@@ -1,27 +1,16 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'my-app',
-  templateUrl: './app.component.html',
+  template: `
+  <div class="container"> | 
+    <a routerLinkActive="active" 
+       routerLink="/users">Users</a> |
+
+    <a routerLinkActive="active" 
+       routerLink="/form">Form</a> |
+  </div>
+  `,
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
-  constructor(private http: HttpClient) {}
-
-  usersList: Array<string> = [];
-
-  getData() {
-    this.http
-      .get('https://jsonplaceholder.typicode.com/users')
-      .subscribe((response) => {
-        for (let key in response) {
-          this.usersList.push(response[key].name);
-        }
-      });
-  }
-
-  ngOnInit() {
-    this.getData();
-  }
-}
+export class AppComponent {}
