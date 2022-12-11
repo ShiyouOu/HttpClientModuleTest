@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 export class UsersViewComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
-  usersList: Array<string> = [];
+  @Input() usersList: Array<string> = [];
 
   getData() {
     this.http
